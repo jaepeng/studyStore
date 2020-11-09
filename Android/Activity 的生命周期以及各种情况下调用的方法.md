@@ -1,5 +1,9 @@
 # Activity 的生命周期以及各种情况下调用的方法
 
+[TOC]
+
+
+
 ### 生命周期介绍
 
 1. **onCreate**:**表示页面（Activity）的创建**。（生命周期第一个阶段）功能：完成初始化工作，如：加载页面布局资源、初始化数据。
@@ -109,3 +113,6 @@
 
 > Dialog.onPause——>Main.onStop——>Main.onSaveInstanceState——>Dialog.onStop——>onSaveInstanceState
 
+### 如何将数据返回到启动你的Activity
+
+如果一个activity要返回数据到启动它的那个activity，可以调用**setResult()**方法，在activity**销毁(onDestory)**之前需要调用
