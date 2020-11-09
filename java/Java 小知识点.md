@@ -206,4 +206,4 @@ public class CallableAndFuture {
 
 ## 局部内部类
 
-就像是局部方法里面的变量，是不能用 public protected、private、default等来修饰的，**static**也不行
+> 就像是局部方法里面的变量，是不能用 public protected、private、default等来修饰的，**static**也不行
