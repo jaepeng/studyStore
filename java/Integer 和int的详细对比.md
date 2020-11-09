@@ -4,7 +4,7 @@
 
 [参考链接](https://blog.csdn.net/i6223671/article/details/88873163?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.edu_weight)
 
-==注意==Intger的范围在（-128~127）是非常需要注意的临界点
+**注意:**Intger的范围在（-128~127）是非常需要注意的临界点
 
 ##  1.int与Ingteger的基本使用对比
 

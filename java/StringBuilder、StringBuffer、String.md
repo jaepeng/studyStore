@@ -12,7 +12,7 @@
 String str="abc"
 ```
 
-2. 一些简单的定义（详情请见【Integer和int的详细对比】
+2. 一些简单的定义（详情请见[Integer和int的详细对比](https://github.com/jaepeng/studyStore/blob/master/java/Integer%20%E5%92%8Cint%E7%9A%84%E8%AF%A6%E7%BB%86%E5%AF%B9%E6%AF%94.md))
 
    1. ```java
       int i=1;//i如果是局部变量的话，i和1都存放在栈中。
