@@ -199,6 +199,24 @@ public class CallableAndFuture {
 
 >父类静态代码块 ->子类静态代码块 ->父类非静态代码块 -> 父类构造函数 -> 子类非静态代码块 -> 子类构造函数。
 
+```java
+public class Parent {
+
+    public Parent() {
+        System.out.println("父类构造器的方法");
+    }
+    static{
+        System.out.println("父类静态代码块的方法");
+    }
+    {
+        System.out.println("父类的代码块的方法");
+    }
+
+}
+```
+
+==tips== 如果父类的非静态代码块去掉括号是不能执行的，编译错误。
+
 ## 枚举（enum）类型
 
 1. 是Java 5新增的特性，它是一种新的类型，允许用常量来表示特定的数据片断，而且全部都以类型安全的形式来表示，是特殊的类，可以拥有成员变量和方法。
