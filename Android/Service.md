@@ -129,6 +129,8 @@ mRemoteBinder.callServiceInnerMethod();
 1. 绑定服务后就与Activity绑定,应用程序退出,Service也会退出
 2. 可以跟服务进行通讯
 
+> onCreate()---->onBind()---->onUnBind() -->onDestory()
+
 #### 混合绑定的优势
 
 > 我们先startService，再进行bindService，这样子的话，服务可以长期于后台运行，又可以跟服务进行通讯了。
