@@ -74,3 +74,14 @@
 1. NDK是一系列工具的集合
 2. NDK 提供了一份稳定、功能有限的 API 头文件声明
 3. 使 “Java+C” 的开发方式终于转正，成为官方支持的开发方式
+
+## Handler
+
+[参考链接](https://blog.csdn.net/weixin_34209406/article/details/87997113?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.edu_weight&depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.edu_weight)
+
+1. 一个线程只能有一个Handler和Looper(通过ThreadLocal保证只有一个looper)
+2. Looper(Looper.prepare())创建MessageQueue
+3. Looper(Looper.loop())创建Loop
+
+
+
