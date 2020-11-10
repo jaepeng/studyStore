@@ -225,3 +225,43 @@ public class Parent {
 ## 局部内部类
 
 > 就像是局部方法里面的变量，是不能用 public protected、private、default等来修饰的，**static**也不行
+
+## TreeSet的方法
+
+**sub(from,true,to,true):**true表示要包括边界值(即from,to)
+
+
+
+## java的复制数组的效率
+
+>  复制的效率System.arraycopy>clone>Arrays.copyOf>for循环
+
+## ceil、floor、round
+
+**ceil：**天花板，找比自己大的整数
+
+floor：地板，找比自己小的整数
+
+round：正数四舍五入，负数，五舍六入。
+
+## Collection和Collections
+
+**java.util.Collection** 是一个**集合接口**。它提供了对集合对象进行基本操作的通用接口方法。Collection接口在Java 类库中有很多具体的实现。Collection接口的意义是为各种具体的集合提供了最大化的统一操作方式。
+
+**java.util.Collections** 是一个**包装类**。它包含有各种有关集合操作的静态多态方法。此类不能实例化，就像一个工具类，服务于Java的Collection框架。
+
+## ThreadLocal
+
+1. **用于创建线程的本地变量**，该变量是线程之间不共享的
+2. ThreadLocal存放的值是线程封闭，**线程间互斥**的，主要用于**线程内共享**一些数据，**避免通过参数来传递**
+3. 线程的角度看，每个线程都保持一个对其线程局部变量副本的隐式引用，只要线程是活动的并且 ThreadLocal 实例是可访问的；在线程消失之后，其线程局部实例的所有副本都会被垃圾回收
+4. 在Thread中有一个成员变量ThreadLocals，该变量的类型是ThreadLocalMap(是ThreadLoacl的内部类),也就是一个Map(但不是继承和implementMap接口)，它的键是threadLocal，值为就是变量的副本。
+5. 对于多线程资源共享的问题，同步机制采用了“以时间换空间”的方式，而ThreadLocal采用了“以空间换时间”的方式
+6. 通过ThreadLocal的get()方法可以获取该线程变量的本地副本，在get方法之前要先set,否则就要重写initialValue()方法。
+
+## 进程和线程
+
+1. 一个**进程**是一个**独立的运行环境**，可以被看做一个程序或者一个应用。而**线程**是在进程中**执行的一个任务**。Java运行环境是一个包含了不同的类和程序的**单一进程**。线程可以被称为**轻量级进程**。线程需要较少的资源来创建和驻留在进程中，并且可以共享进程中的资源
+
+   
+
