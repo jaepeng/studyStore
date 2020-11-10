@@ -82,6 +82,9 @@
 1. 一个线程只能有一个Handler和Looper(通过ThreadLocal保证只有一个looper)
 2. Looper(Looper.prepare())创建MessageQueue
 3. Looper(Looper.loop())创建Loop
+4. Handler内部有一个空的Runnable叫做Callable
+   1. 如果是空的构造函数Hanlder(),则Callable为null,
+   2. 如果postDelayed()方法,则会将传入的Runnable r 赋值给callable
 
 
 
