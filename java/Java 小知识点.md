@@ -184,16 +184,20 @@ public class CallableAndFuture {
 
 > public>protected>default>private
 
-**protected**:
+|          | public | protected | default | private |
+| :------- | :----: | :-------: | :-----: | :-----: |
+| 同一个类 |   √    |     √     |    √    |    √    |
+| 同一个包 |   √    |     √     |    √    |         |
+| 子类中   |   √    |     √     |         |         |
+| 全局     |   √    |           |         |         |
 
-1. 同一个包下的类
-2. 子类
-3. 同一个类
+1. 类指外部类，最大的类，修饰符有public(表示该类在项目所有类中可以被导入），default(该类只能在同一个package中使用）,abstract,final
 
-**default**：
+2. 内部类指位于类内部但不包括位于块、构造器、方法内，且有名称的类，修饰符有public,private,protected访问控制符，也可以用static,final关键字修饰，public和private比较简单，一个表示所有可以被所有类访问，一个表示只能被自身访问，protected修饰的成员类可以被同一个包中的类和子类访问。而default修饰的成员类只能被同一个包中的类访问。
 
-1. 同类
-2. 同包
+3. 局部内部类指位于块、构造器、方法内的有名称类，最多只能有final修饰
+
+   [参考链接](http://blog.csdn.net/a327369238/article/details/52780442)
 
 ## 子类实现父类后的代码执行顺序
 
@@ -302,6 +306,6 @@ round：正数四舍五入，负数，五舍六入。
 ## try catch finally
 
 1. 如果try中有return语句,那么先会执行finally中的语句,要**保证finally一定要被执行**
-2. 如果try中有数据处理,比如(retrun a++),则会先**将(a++)计算出来**进行保存,然后去执行finally中的语句,这时候如果finally中的语句有retrun 则直接返回了就.
-3. 如果catch中也有返回值,finally中也有返回值,则finally中的返回值会替代catch中的语句,以内catch中的语句保存在一个临时区中.
+2. 如果try中有数据处理,比如(retrun a++),则会先**将(a++)计算出来**进行保存,供后面的语句进行执行,然后去执行finally中的语句,这时候如果finally中的语句有retrun 则直接返回了.
+3. 如果catch中也有返回值,finally中也有返回值,则finally中的返回值会替代catch中的语句,因为catch中的语句保存在一个临时区中.
 
