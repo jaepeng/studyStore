@@ -297,3 +297,11 @@ round：正数四舍五入，负数，五舍六入。
 1. 虽然String看似是一个基本类型,实际上它是一个final的char类型数组,所以传递String字符的时候其实是对副本的改变,因为String本身是final的,所以是不能再次赋值的。
 2. 如果是String数组的话，由于是一个对象，所以是可以改变的。
 
+
+
+## try catch finally
+
+1. 如果try中有return语句,那么先会执行finally中的语句,要**保证finally一定要被执行**
+2. 如果try中有数据处理,比如(retrun a++),则会先**将(a++)计算出来**进行保存,然后去执行finally中的语句,这时候如果finally中的语句有retrun 则直接返回了就.
+3. 如果catch中也有返回值,finally中也有返回值,则finally中的返回值会替代catch中的语句,以内catch中的语句保存在一个临时区中.
+
