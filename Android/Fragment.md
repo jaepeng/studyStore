@@ -2,6 +2,8 @@
 
 [参考链接](https://www.jianshu.com/p/9f538c3a1918)
 
+[启舰参考链接](https://blog.csdn.net/harvic880925/article/details/44927375)
+
 ## Framgent的作用
 
 1. 同样的界面Activity占用内存比Fragment要多，响应速度Fragment比Activty在中低端手机上快了很多，甚至能达到好几倍
@@ -20,7 +22,7 @@
 
 ## Fragment生命周期
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/FragmetnLifeCycle.png?token=AGMTLFOOFB24P6BHN4OOUIC7VJSWK)
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_LifeCycle.png)
 
 > **onAttach**：onAttach()在fragment与Activity关联之后调调查用。需要**注意**的是，初始化fragment参数可以从getArguments()获得，但是，当Fragment附加到Activity之后，就无法再调用setArguments()。所以除了在最开始时，其它时间都无法向初始化参数添加内容
 
@@ -50,13 +52,13 @@
 
 ### 静态创建Fragment
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/%E9%9D%99%E6%80%81%E5%88%9B%E5%BB%BAFragment.png?token=AGMTLFLDICP7AP73YBANGQ27VILAU)
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/%E9%9D%99%E6%80%81%E5%8A%A0%E8%BD%BDFragment.png)
 
 
 
 ### 动态创建Fragment
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/%E5%8A%A8%E6%80%81%E5%88%9B%E5%BB%BAFragment.png?token=AGMTLFIXGD5FXHHGJ642QZK7VIZ3I)
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDFragment.png)
 
 #### Replace Fragment
 
@@ -71,7 +73,7 @@ transaction.commit();
 
 ##### 生命周期表现：
 
-![image-20201110135155144](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/20201110135156.png?token=AGMTLFO5LCKMJLYPMXXBP6K7VIVLU)
+![image-20201112144845930](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_Replace.png)
 
 ##### 分析
 
@@ -89,15 +91,18 @@ transaction.commit();
 
 ##### 生命周期表现
 
-![image-20201110135959667](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/20201110135959.png?token=AGMTLFLBF3L7GXSM46EG7XS7VIWJ2)
+![image-20201112145200652](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_addMore.png)
 
 ##### 分析
 
 1. 直接对Fragment2进行添加，并没有调用Fragment的onPause和onStop方法，为什么这样？因为这两个方法是与Activity的生命周期绑定的
 2. 这时候如果在点击按钮添加Fragment1，又会从onAttach()开始，因为每次add都是一个新的Fragment对象
 3. 等添加了多个Fragmetn后，这个时候如果使用replace方法就会让之前所有添加的Fragment都销毁。并且是倒序的，因为Fragment的add方法是将Fragment添加到Fragment栈里去，这个时候删除也是出栈删除,所以先来的后删除.
+4. 下面这张图是点击replace按钮,将Fragment2replace上来,可以看到,Fragment2执行到onCreate后就停下来等其他在栈中的Fragment删除后,才继续onCreateView等操作.
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/addFragment%E7%9A%84%E7%BB%93%E6%9E%9C?token=AGMTLFPW3YK7FMNFNRPSFB27VJRQI)
+![image-20201112145332629](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_add_and_replace.png)
+
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_add_remove_stack)
 
 
 
@@ -110,11 +115,11 @@ transaction.commit();
 
 ## Fragment管理与Fragment事务
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/Fragment%E7%AE%A1%E7%90%86%E5%92%8C%E4%BA%8B%E5%8A%A1.png?token=AGMTLFOEDERFMR6SMFD5TFC7VI2DG)
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/FragmentManager.png)
 
 ## Fragment和Activity交互
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/Fragment%E5%92%8CActiviy%E4%BA%A4%E4%BA%92.png?token=AGMTLFK4WO6SHL32SSXHXSK7VI2GO)
+![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_Activity_dataContact.png)
 
 ### 组件获取
 
