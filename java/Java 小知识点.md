@@ -309,3 +309,5 @@ round：正数四舍五入，负数，五舍六入。
 2. 如果try中有数据处理,比如(retrun a++),则会先**将(a++)计算出来**进行保存,供后面的语句进行执行,然后去执行finally中的语句,这时候如果finally中的语句有retrun 则直接返回了.
 3. 如果catch中也有返回值,finally中也有返回值,则finally中的返回值会替代catch中的语句,因为catch中的语句保存在一个临时区中.
 
+## Synchronize和Volatile
+volatile能保证数据的可见性，但不能完全保证数据的原子性，synchronized即保证了数据的可见性也保证了原子性
