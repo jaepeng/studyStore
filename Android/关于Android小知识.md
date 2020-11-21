@@ -1,5 +1,9 @@
 # 关于Android小知识
 
+[TOC]
+
+
+
 ## AlertDialog
 
 1. AlertDialog.Builder的create() 和show()方法都返回AlertDialog对象
@@ -270,7 +274,7 @@ Service在特定的时间内无法处理完成
 
 ## 如和防止ANR?
 
-####  @+id/资源ID名，@id/资源ID名，@android:id/资源ID名三种id格式的区别
+###  @+id/资源ID名，@id/资源ID名，@android:id/资源ID名三种id格式的区别
 
 1. **android:id="@+id/new_name":**
 
@@ -351,11 +355,11 @@ Service在特定的时间内无法处理完成
 
 ## Activity被销毁时,调用什么方法保存截面数据?
 
-实现 Activity 的 onSaveInstanceState（）方法
+实现 Activity 的 onSaveInstanceState（）方法,该方法不一定能保证得到使用,最好还是在onPause()中和onStop中做数据存储
 
 ### 调用什么方法恢复?
 
-onRestoreInstanceState()
+可以在onCreate()方法中判断savedInstanceState是否保存了数据onRestoreInstanceState()
 
 ## 在安卓应用程序开发中，可以通过(什么方法)获得屏幕的属性，从而取得屏幕的宽度和高度?
 
@@ -413,3 +417,29 @@ onReceive
 4. sharedpreference.apply()是异步的，sharedpreference.commit()是同步的。
 5. sharePreferences处理的就是key-value对
 6. 属于移动存储解决方案
+
+## 清单文件中设置不让他横竖屏切换,activity怎么知道进行了横竖屏切换
+
+### 清单文件保证他不进行横竖屏切换
+
+	>  **android:screenOrientation=”landscape”**
+
+### 如何检测
+
+> 可以使用重力传感器
+
+[参考文章]([Activity横竖屏切换的那些事_gdutxiaoxu的博客（微信公众号 stormjun94）-CSDN博客](https://blog.csdn.net/gdutxiaoxu/article/details/62235974))
+
+## 横竖屏切换一定会调用onDestory吗?
+
+在清单文件中配置该属性：android:configChanges属性
+
+总结：
+
+1、不设置Activity的android:configChanges时，切屏会重新调用各个生命周期，切横屏时会执行一次，切竖屏时会执行两次
+
+2、设置Activity的android:configChanges="orientation"时，切屏还是会重新调用各个生命周期，切横、竖屏时只会执行一次
+
+3、设置Activity的android:configChanges="orientation|keyboardHidden"时，切屏不会重新调用各个生命周期，只会执行onConfigurationChanged方法
+
+注意：自从Android 3.2（API 13），在设置Activity的android:configChanges="orientation|keyboardHidden"后，还是一样会重新调用各个生命周期的。因为screen size也开始跟着设备的横竖切换而改变。因此，阻止程序在运行时重新加载Activity，除了设置"orientation"，你还必须加上"ScreenSize"。
