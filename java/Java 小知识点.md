@@ -282,7 +282,7 @@ round：正数四舍五入，负数，五舍六入。
 
 ## java集合框架(Collection)
 
-![img](https://raw.githubusercontent.com/jaepeng/PicGo/master/img/java%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6%E5%9B%BE?token=AGMTLFNSZJYT4CXXP25CZ2S7VMXY4)
+![img](https://gitee.com/pengjae/pic/raw/master/img/20201124153457.png)
 
 ## 引用传递和值传递
 
