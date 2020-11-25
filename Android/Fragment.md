@@ -22,7 +22,7 @@
 
 ## Fragment生命周期
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_LifeCycle.png)
+![img](https://gitee.com/pengjae/pic/raw/master/img/20201124215553.webp)
 
 > **onAttach**：onAttach()在fragment与Activity关联之后调调查用。需要**注意**的是，初始化fragment参数可以从getArguments()获得，但是，当Fragment附加到Activity之后，就无法再调用setArguments()。所以除了在最开始时，其它时间都无法向初始化参数添加内容
 
@@ -52,15 +52,13 @@
 
 ### 静态创建Fragment
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/%E9%9D%99%E6%80%81%E5%8A%A0%E8%BD%BDFragment.png)
+![img](https://gitee.com/pengjae/pic/raw/master/img/20201124215619.webp)
 
 
 
 ### 动态创建Fragment
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/%E5%8A%A8%E6%80%81%E5%8A%A0%E8%BD%BDFragment.png)
-
-#### Replace Fragment
+#### ![img](https://gitee.com/pengjae/pic/raw/master/img/20201124215634.webp)Replace Fragment
 
 ```java
 //使用replace的方式，用Fragment2,代替Frgment1(Fragment1已经被添加了)
@@ -73,7 +71,7 @@ transaction.commit();
 
 ##### 生命周期表现：
 
-![image-20201112144845930](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_Replace.png)
+<img src="https://gitee.com/pengjae/pic/raw/master/img/20201125144616.png" alt="image-20201125144606979" style="zoom:50%;" />
 
 ##### 分析
 
@@ -91,16 +89,18 @@ transaction.commit();
 
 ##### 生命周期表现
 
-![image-20201112145200652](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_addMore.png)
+<img src="https://gitee.com/pengjae/pic/raw/master/img/20201125144726.png" alt="image-20201125144724618" style="zoom:67%;" />
 
 ##### 分析
 
-1. 直接对Fragment2进行添加，并没有调用Fragment的onPause和onStop方法，为什么这样？因为这两个方法是与Activity的生命周期绑定的
+1. 直接对Fragment2进行添加，并没有调用Fragment1的onPause和onStop方法，为什么这样？因为这两个方法是与Activity的生命周期绑定的
 2. 这时候如果在点击按钮添加Fragment1，又会从onAttach()开始，因为每次add都是一个新的Fragment对象
-3. 等添加了多个Fragmetn后，这个时候如果使用replace方法就会让之前所有添加的Fragment都销毁。并且是倒序的，因为Fragment的add方法是将Fragment添加到Fragment栈里去，这个时候删除也是出栈删除,所以先来的后删除.
-4. 下面这张图是点击replace按钮,将Fragment2replace上来,可以看到,Fragment2执行到onCreate后就停下来等其他在栈中的Fragment删除后,才继续onCreateView等操作.
+3. 等添加了多个Fragmetn后，这个时候如果使用replce方法就会让之前所有添加的Fragment都销毁。并且是倒序的，因为Fragment的add方法是将Fragment添加到Fragment栈里去，这个时候删除也是出栈删除,所以先来的后删除.
+4. 下面这张图是点击replace按钮,将Fragment2replace上来,可以看到,Fragment2执行到**onCreate**后就停下来等其他在栈中的Fragment删除后,才继续onCreateView等操作.
 
-![image-20201112145332629](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_add_and_replace.png)
+![image-20201125150239222](https://gitee.com/pengjae/pic/raw/master/img/20201125150241.png)
+
+![image-20201125145958095](https://gitee.com/pengjae/pic/raw/master/img/20201125150000.png)
 
 ![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_add_remove_stack)
 
@@ -115,11 +115,11 @@ transaction.commit();
 
 ## Fragment管理与Fragment事务
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/FragmentManager.png)
+![img](https://gitee.com/pengjae/pic/raw/master/img/20201125145032.webp)
 
 ## Fragment和Activity交互
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_Activity_dataContact.png)
+![img](https://upload-images.jianshu.io/upload_images/7508328-479043c8a296ec8d.png?imageMogr2/auto-orient/strip|imageView2/2/w/920/format/webp)
 
 ### 组件获取
 
