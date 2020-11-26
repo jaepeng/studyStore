@@ -1,5 +1,7 @@
 # Handler源码解析
 
+[补充参考链接](https://github.com/Omooo/Android-Notes/blob/master/blogs/Android/Handler%20%E6%B6%88%E6%81%AF%E6%9C%BA%E5%88%B6.md)
+
 ![image-20201120102826616](https://gitee.com/pengjae/pic/raw/master/img/handler_1.png)
 
 ## Handelr 作用
@@ -200,6 +202,65 @@ public void enqueueMessage(Message msg){
 }
 ```
 
+## Handler问题
+
+1. **Looper.loop 死循环不会造成应用卡死嘛？**
+
+   如果按照 Message.next 方法的注释来解释的话，如果返回的 Message 为空，就说明消息队列已经退出了，这种情况下只能说明应用已经退出了。这也正符合我们开头所说的，Android 本身是消息驱动，所以没有消息几乎是不可能的事；如果按照源码分析，Message.next() 方法可能会阻塞是因为如果消息需要延迟处理（sendMessageDelayed等），那就需要阻塞等待时间到了才会把消息取出然后分发出去。然后这个 ANR 完全是两个概念，ANR 本质上是因为消息未得到及时处理而导致的。同时，从另外一方面来说，对于 CPU 来说，线程无非就是一段可执行的代码，执行完之后就结束了。而对于 Android 主线程来说，不可能运行一段时间之后就自己退出了，那就需要使用死循环，保证应用不会退出。这样一想，其实这样的安排还是很有道理的。
+
+   [参考链接](https://www.zhihu.com/question/34652589/answer/90344494)
+
+   [自我总结部分](https://github.com/jaepeng/studyStore/blob/master/Android/Android%E4%B8%AD%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88Looper.loop.md)
+
+
+
+### 如何避免Handler内存泄漏
+
+1. Handler 允许我们发送延时消息，如果在延时期间用户关闭了 Activity，那么该 Activity 泄漏。这是因为内部类默认持有外部类的引用。
+
+   **解决办法**就是：将 Handler 定义为**静态内部类的形式，在内部持有 Activity 的弱引用，并及时移除所有消息。**
+
+   ```java
+   public class MainActivity extends AppCompatActivity {
+   
+       private MyHandler mMyHandler = new MyHandler(this);//虚引用的Activiy
+   
+       @Override
+       protected void onCreate(Bundle savedInstanceState) {
+           super.onCreate(savedInstanceState);
+           setContentView(R.layout.activity_main);
+       }
+   
+       private void handleMessage(Message msg) {
+   
+       }
+   
+       static class MyHandler extends Handler {
+           private WeakReference<Activity> mReference;
+   
+           MyHandler(Activity reference) {//内部持有Activiy的虚引用
+               mReference = new WeakReference<>(reference);
+           }
+   
+           @Override
+           public void handleMessage(Message msg) {
+               MainActivity activity = (MainActivity) mReference.get();
+               if (activity != null) {
+                   activity.handleMessage(msg);
+               }
+           }
+       }
+   
+       @Override
+       protected void onDestroy() {
+           mMyHandler.removeCallbacksAndMessages(null);
+           super.onDestroy();
+       }
+   }
+   ```
+
+   
+
 ## 整体总结
 
 1. prepare一定要调用
@@ -208,4 +269,5 @@ public void enqueueMessage(Message msg){
    2. 线程是唯一的变量，更方便管理
 3. 为什么使用ObtainMessage而不是直接创建的Message
    1. **享元设计模式**
-   2. 
+   
+      
