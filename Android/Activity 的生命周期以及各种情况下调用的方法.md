@@ -27,19 +27,19 @@
 
 #### 不同情况下的生命周期
 
-1. 这个时候直接退出(按返回键退出)：
+1. **这个时候直接退出(按返回键退出)：**
 
 > onPause——>onStop——>onDestory
 
-2. 这个时候翻转屏幕：
+2. **这个时候翻转屏幕：**
 
 > onPause——>onStop——>onSaveInstanceState——>onDestory——>onCreate——>onStart——>onRestoreInstanceState——>onResume
 
 ​		由此可见，如果在一个Activity页面进行翻转页面的话，会将这个Activity**销毁**掉，然后**重新创建**。并且在onStop和onDestory方法之间会调用onSaveInstanceState()方法进行数据保存。在onStart和onResume方法之间还会将调用onRestoreInstanceState方法将数据恢复。
 
-3. 翻转屏幕后如果是同侧的翻转（180°）是不会调用任何方法的
+3. **翻转屏幕后如果是同侧的翻转（180°）是不会调用任何方法的**
 
-4. 翻转屏幕后翻转回来（90°）：
+4. **翻转屏幕后翻转回来（90°）：**
 
 > onPause——>onStop——>onSaveInstanceState——>onDestory——>onCreate——>onStart——>onRestoreInstanceState——>onResume
 
