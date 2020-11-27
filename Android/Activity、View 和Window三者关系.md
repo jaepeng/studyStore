@@ -9,7 +9,7 @@
 
 3. PhoneWindow是**Window**的具体实现类，Activity和Dialog中的Window对象都是PhoneWindow。同时得到(关联)一个WindowManager对象，WIndowManager是一个抽象类，它的具体实现是在WindowManagerImpl 。**每个 Activity 会有一个 WindowManager 对象**，这个 mWindowManager 就是和 [WindowManagerService](#WMS) 进行通信，也是 WindowManagerService 识别 View 具体属于那个 Activity 的**关键**，创建时传入 IBinder 类型的 mToken。这个 Activity 的 mToken，这个 mToken 是一个 IBinder，WindowManagerService 就是通过这个 IBinder 来管理 Activity 里的 View。
 
-4. 一个 Activity 对应一个 Window 也就是 PhoneWindow，一个 PhoneWindow 持有一个 DecorView 的实例，DecorView 本身是一个 FrameLayout。
+4. 一个 Activity 对应一个 Window 也就是 PhoneWindow，**一个 PhoneWindow 持有一个 DecorView 的实例，DecorView 本身是一个 FrameLayout。**
 
 ![这里写图片描述](https://gitee.com/pengjae/pic/raw/master/img/20201126174401.png)
 
