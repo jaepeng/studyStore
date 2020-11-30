@@ -384,6 +384,8 @@ OPTIONS 方法用来查询针对请求 URI 指定的资源支持的方法。
 
 ### 基本特征
 
+[浅谈对称加密与非对称加密 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/49494990)
+
 1. 基于HTTP协议，通过SSL或TLS提供加密处理数据、验证对方身份以及数据完整性保护
    1. HTTPS 并不是新协议，而是让 HTTP 先和 SSL（Secure Sockets Layer）通信，再由 SSL 和 TCP 通信，也就是说 HTTPS 使用了隧道进行通信。
    2. 通过使用 SSL，HTTPS 具有了加密（防窃听）、认证（防伪装）和完整性保护（防篡改）。
