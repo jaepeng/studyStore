@@ -56,7 +56,7 @@ String str="abc"
       System.out.println(MESSAGE==s);//false
       ```
 
-      ==tips:==String的“**+**”号**拼接字符串的操作**是靠**StringBuffer**实现的.
+      **tips:**String的“**+**”号**拼接字符串的操作**是靠**StringBuffer**实现的.
 
       > 先构造一个StringBuffer里面存放”tao”,然后调用append()方法追加”bao”，然后将值为”taobao”的StringBuffer转化成String对象。StringBuffer对象在堆内存中，那转换成的String对象理所应当的也是在堆内存中。
 
@@ -76,13 +76,13 @@ String str="abc"
       System.out.println(c==s);//true
       ```
 
-      ==tips:==要是有一个不是final,就不会这么优化,还是会返回false
+      **tips:**要是有一个不是final,就不会这么优化,还是会返回false
 
    ### StringBuffer&StringBuilder
 
    #### StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且**不产生新的未使用对象**。
 
-   1. StringBuilder 的方法不是线程安全的,StringBuffer线程安全.
+   1. StringBuilder 的方法不是线程安全的,**StringBuffer线程安全.**
 
    2. 正因为StringBuffer线程安全,所以效率较低,StringBuilder有速度优势.
 
