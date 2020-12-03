@@ -77,25 +77,37 @@ String str="abc"
       ```
 
       **tips:**要是有一个不是final,就不会这么优化,还是会返回false
+   
+   5. String类下常用的方法:
 
+      1. startsWith()
+   2. replace()
+      3. equalsIgnoreCase()
+   4. indexOf()
+      5. length()
+   6. toUpperCase()
+      7. toLowerCase()
+   8. substring()
+      9. trim()
+   
    ### StringBuffer&StringBuilder
-
+   
    #### StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且**不产生新的未使用对象**。
 
    1. StringBuilder 的方法不是线程安全的,**StringBuffer线程安全.**
 
    2. 正因为StringBuffer线程安全,所以效率较低,StringBuilder有速度优势.
-
+   
    3. 初始化时,默认容量为16+value.length=19.如果只是实例化一个空的stringBuffer/stringBuilder对象出来,那么默认容量为16.
-
+   
       ```java
       StringBuffer sb=new StringBuffer("123");
        System.out.println(stringBuffer.capacity());//19
       
       ```
-
+   
    4. 扩容方式2*n+2;当超过Integer.MAX_VALUE时,就只能扩容到MAX_VALUE这个值,并且会抛出异常OutOfMemoryError
-
+   
    
 
 

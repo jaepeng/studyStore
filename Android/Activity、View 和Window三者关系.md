@@ -26,5 +26,5 @@
 
 4. <span id="WMS">**WindowManagerService**（WMS）</span>是所有 **Window 窗口的管理者**，它负责 Window 的添加和删除、Surface 的管理和事件分发等等，因此每一个 Activity 中的 PhoneWindow 对象如果需要显示等操作，就需要要与 WMS 交互才能进行。这一步是在 ViewRootImpl 的 setView 方法中，会调用 requestLayout，并且通过 WindowSession 的 addToDisplay 与 WMS 进行交互，WMS 会为每一个 Window 关联一个 WindowState。除此之外，ViewRootImpl 的 setView 还做了一件重要的事就是注册 InputEventReceiver，这和 View 事件分发有关。
 
-   ![](https://gitee.com/pengjae/pic/raw/master/img/20201126182005.jpeg)
+   ![img](https://gitee.com/pengjae/pic/raw/master/img/20201202140502.webp)
 
