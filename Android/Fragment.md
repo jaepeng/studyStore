@@ -93,7 +93,7 @@ transaction.commit();
 
 ##### 分析
 
-1. 直接对Fragment2进行添加，并没有调用Fragment1的onPause和onStop方法，为什么这样？因为这两个方法是与Activity的生命周期绑定的
+1. 直接对Fragment2进行添加，并没有调用Fragment1的onPause和onStop方法，为什么这样？因为add方法是让Fragment2入栈,Fragment1还在栈底。并且由于Fragment的生命周期和Activity绑定，所以是不会调用onPause和onStop方法的。
 2. 这时候如果在点击按钮添加Fragment1，又会从onAttach()开始，因为每次add都是一个新的Fragment对象
 3. 等添加了多个Fragmetn后，这个时候如果使用replce方法就会让之前所有添加的Fragment都销毁。并且是倒序的，因为Fragment的add方法是将Fragment添加到Fragment栈里去，这个时候删除也是出栈删除,所以先来的后删除.
 4. 下面这张图是点击replace按钮,将Fragment2replace上来,可以看到,Fragment2执行到**onCreate**后就停下来等其他在栈中的Fragment删除后,才继续onCreateView等操作.
@@ -102,7 +102,7 @@ transaction.commit();
 
 ![image-20201125145958095](https://gitee.com/pengjae/pic/raw/master/img/20201125150000.png)
 
-![img](https://raw.githubusercontent.com/jaepeng/myPicGo/main/img/Fragment_add_remove_stack)
+
 
 
 

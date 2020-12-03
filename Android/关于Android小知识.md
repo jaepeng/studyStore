@@ -189,9 +189,12 @@ ContentProvider的主要目的是对外暴露数据提供其他程序查询
 ## Service的启动方式
 
 1. 用**startService() **启动的Service启动后和Activity就无关了.就算Activity销毁了,也会在后台继续执行
-
 2. 而**bindService()**启动的Service如果Activity挂了之后,他也会挂掉.并且要记得注销掉它.不然会造成资源浪费
 3. 先startService()启动再用bindService()方式绑定那如何销毁?
+   1. 这样启动的优势：
+      1. 服务既可以长期在后台运行，又可以与服务进行通信。
+   2. 需要先进行解绑onUnbind(解绑服务，否则**无法停止服务**的（但是服务，仍然在后台运行）)
+   3. 再在不需要使用时调用stopService()
 
 ## Android dvm的进程和Linux的进程
 
