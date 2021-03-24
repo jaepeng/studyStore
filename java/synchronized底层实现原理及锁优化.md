@@ -4,6 +4,8 @@
 
 ## 一、简述
 
+[自旋锁、适应性自旋锁、锁消除、锁粗化、偏向锁、轻量级锁_公众号@代码艺术-CSDN博客](https://blog.csdn.net/weixin_46288569/article/details/106582151)
+
 1️⃣synchronized的作用
  ①原子性：synchronized 保证语句块内操作是原子的。
  ②可见性：synchronized 保证可见性(通过“在执行unlock之前，必须先把此变量同步回主内存”实现)。

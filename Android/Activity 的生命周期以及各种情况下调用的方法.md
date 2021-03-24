@@ -69,9 +69,8 @@
 
 1. 直接返回到第一个Activity
 
-> Second.onPause——>Main.onRestart——>Main.onStart——>Main.onResume——>Second.onStop
+> Second.onPause——>Main.onRestart——>Main.onStart——>Main.onResume——>Second.onStop——>Second.onDestory
 >
-> ——>Second.onDestory
 
 2.再第二个Activity界面直接返回主界面
 
@@ -80,6 +79,10 @@
 3.从主界面返回来
 
 > 与上同
+
+4. **在第二个Activity翻转后再退回**
+
+> Second.onPause——>Main.onDesotry——>Main.onCreate——>Main.onStart——>Main.onRestoreInstanceState——>Main.onResume——>Second.onDestory
 
 ### 启动DialogActivity
 

@@ -82,20 +82,24 @@ String str="abc"
 
       1. startsWith()
    2. replace()
+      
       3. equalsIgnoreCase()
    4. indexOf()
+      
       5. length()
    6. toUpperCase()
+      
       7. toLowerCase()
    8. substring()
+      
       9. trim()
-   
+
    ### StringBuffer&StringBuilder
-   
+
    #### StringBuffer 和 StringBuilder 类的对象能够被多次的修改，并且**不产生新的未使用对象**。
-
+   
    1. StringBuilder 的方法不是线程安全的,**StringBuffer线程安全.**
-
+   
    2. 正因为StringBuffer线程安全,所以效率较低,StringBuilder有速度优势.
    
    3. 初始化时,默认容量为16+value.length=19.如果只是实例化一个空的stringBuffer/stringBuilder对象出来,那么默认容量为16.

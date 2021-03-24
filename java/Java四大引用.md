@@ -139,8 +139,6 @@ SoftReference softReference=new SoftReference(obj,queue);
 
 ## 弱引用与软引用对比
 
-
-
 ### 区别
 
 1. **只具有弱引用**的对象拥有**更短暂的生命周期。**

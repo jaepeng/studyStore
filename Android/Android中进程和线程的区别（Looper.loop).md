@@ -2,6 +2,8 @@
 
 按照操作系统中的描述。线程是 CPU 调度的最小单元，同时线程也是一种有限的资源。而进程一般指一个执行单元，在 PC 和移动设备上指一个程序或者一个应用。一个进程可以包含多个线程。
 
+**进程是资源分配的最小单位，线程是CPU调度的最小单位**
+
 [参考链接](https://www.zhihu.com/question/34652589/answer/90344494)
 
 ## 进程
@@ -10,7 +12,7 @@
 
 2. 组件运行在哪个进程中，是在 AndroidManifest 文件中进行设置的，activity、service、receiver 和 provider 均支持 `android:process` 属性，此属性可以指定该组件应在哪个进程运行。我们可以设置此属性，使每个组件均在各自的进程中运行。
 
-3. Android 进程的五种优先级**（具体查看Android开发小知识点中的【进程状态】部分）**
+3. Android 进程的五种优先级**（具体查看Android开发小知识点中的[进程状态](D:\个人文件\studyStore\Android\关于Android小知识.md)部分）**
 
    **1、前台进程 — Foreground process**
 

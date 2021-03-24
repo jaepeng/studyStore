@@ -139,6 +139,13 @@ mRemoteBinder.callServiceInnerMethod();
 
 onCreate(创建服务)——>onStartCommand(开启服务,使用startService()方法开启)——>onBind(绑定服务)——>onServiceConnected: (Service去建立连接,调用内部方法)——>onUnbind(解绑服务，否则**无法停止服务**的（但是服务，仍然在后台运行）)——>onDestory(彻底不需要时停止服务,使用stopService()方法)
 
+先startService()启动再用bindService()方式绑定那如何销毁?
+
+1. 这样启动的优势：
+   1. 服务既可以长期在后台运行，又可以与服务进行通信。
+2. 需要先进行解绑onUnbind(解绑服务，否则**无法停止服务**的（但是服务，仍然在后台运行）)
+3. 再在不需要使用时调用stopService()
+
 
 
 

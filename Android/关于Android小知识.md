@@ -352,7 +352,7 @@ Service在特定的时间内无法处理完成
 
 包含目前对用户不可见的 Activity 的进程（已调用 Activity 的 [onStop()](https://developer.android.com/reference/android/app/Activity.html#onStop()) 方法）。这些进程对用户体验没有直接影响，系统可能随时终止它们，以回收内存供前台进程、可见进程或服务进程使用。 通常会有很多后台进程在运行，因此它们会保存在 LRU （最近最少使用）列表中，以确保包含用户最近查看的 Activity 的进程最后一个被终止。如果某个 Activity 正确实现了生命周期方法，并保存了其当前状态，则终止其进程不会对用户体验产生明显影响，因为当用户导航回该 Activity 时，Activity 会恢复其所有可见状态。 有关保存和恢复状态的信息，请参阅 [Activity](https://developer.android.com/guide/components/activities.html#SavingActivityState)文档。
 
-**空进程**
+**空进程** 
 
 不含任何活动应用组件的进程。保留这种进程的的唯一目的是用作缓存，以缩短下次在其中运行组件所需的启动时间。 为使总体系统资源在进程缓存和底层内核缓存之间保持平衡，系统往往会终止这些进程。
 
